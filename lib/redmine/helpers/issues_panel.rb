@@ -170,7 +170,7 @@ module Redmine
         (issues_in_status || []).each do |issue|
           issue_cards << view.content_tag('div',
                            render_card_content(issue),
-                           :class => "issue-card link-issue",
+                           :class => "issue-card issue-card-1-#{@query.issues_num_per_row} link-issue",
                            :id => "issue-card-#{issue.id}",
                            :data => { :issue_id => issue.id, :status_id => status.id, :group_value => group_value }
                          )
