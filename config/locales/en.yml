@@ -6,6 +6,7 @@ en:
   notice_failed_to_move_issue: "Failed to move issue."
   field_issues_num_per_row: "Issues num per row"
   label_assign_to_me: "Assign to me"
+  field_issues_num_per_row: "Issues num per row"
 
   project_module_issues_panel: "Issues Panel"
 
