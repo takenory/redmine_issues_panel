@@ -15,6 +15,15 @@ table.issues-panel th {
   font-weight:bold;
 }
 
+table.issues-panel th span.count {
+  top: -1px;
+}
+
+table.issues-panel th a.add-issue-card {
+  position: relative;
+  top: -2px;
+}
+
 table.issues-panel td {
   vertical-align: top;
   background-color: #fffffb;
@@ -140,8 +149,9 @@ table.issues-panel td {
   flex: 1 1 calc(100% / 3.3);
 }
 
-.add-issue-card {
+.issue-cards>.add-issue-card {
   margin: 2px;
+  padding-top: 2px;
   width: 98%;
   text-align: center;
 }
