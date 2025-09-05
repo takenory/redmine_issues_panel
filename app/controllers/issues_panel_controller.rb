@@ -1,7 +1,6 @@
 class IssuesPanelController < ApplicationController
   before_action :find_optional_project, :except => [:show_issue_description]
   before_action :find_issue_card, :only => [:show_issue_description, :move_issue_card]
-
   rescue_from Query::StatementInvalid, :with => :query_statement_invalid
 
   helper :projects
@@ -70,6 +69,11 @@ class IssuesPanelController < ApplicationController
         session[session_key][:issues_num_per_row] = @query.issues_num_per_row
       elsif params[:query_id].blank? && session[session_key][:issues_num_per_row]
         @query.issues_num_per_row = session[session_key][:issues_num_per_row]
+      end
+      if params[:set_filter] && params[:query] && params[:query][:enable_manual_ordering]
+        session[session_key][:enable_manual_ordering] = @query.enable_manual_ordering
+      elsif params[:query_id].blank? && session[session_key][:enable_manual_ordering]
+        @query.enable_manual_ordering = session[session_key][:enable_manual_ordering]
       end
     end
     @issues_panel.query = @query

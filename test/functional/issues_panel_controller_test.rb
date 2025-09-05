@@ -94,7 +94,7 @@ class IssuesPanelControllerTest < ActionController::TestCase
     assert_match "$('#issues-count-on-status-5').html('4')", response.body
     assert_match "$('.issues-count-on-group').html('0');", response.body
     assert_match "$('#issues-count-on-group-').html('4');", response.body
-    assert_match "loadDraggableSettings();", response.body
+    assert_match "loadSortableSetting();", response.body
   end
 
   def test_move_issue_card_but_record_not_found
