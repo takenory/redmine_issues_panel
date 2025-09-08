@@ -26,8 +26,8 @@ module RedmineIssuesPanel
 
       def base_scope
         s = super
-        if self.use_on_issues_panel? && self.enable_manual_ordering? ||
-            self.column_names && self.column_names.include?(:issue_card_position)
+        if (self.use_on_issues_panel? && self.enable_manual_ordering?) ||
+            (self.column_names && self.column_names.include?(:issue_card_position))
           s = s.includes(:issue_card_position)
         end
         s
