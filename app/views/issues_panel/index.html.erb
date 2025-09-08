@@ -63,7 +63,7 @@ function loadDraggableSettings() {
     });
   });
 }
-function moveIssueCard(issue_card, receiver, orderd_issue_ids=[]) {
+function moveIssueCard(issue_card, receiver, ordered_issue_ids=[]) {
   $.ajax({
     url: '<%= move_issue_card_path(:format => 'js') %>',
     type: 'put',
@@ -73,7 +73,7 @@ function moveIssueCard(issue_card, receiver, orderd_issue_ids=[]) {
       'status_id': receiver.attr('data-status-id'),
       'group_key': receiver.attr('data-group-key'),
       'group_value': receiver.attr('data-group-value'),
-      'orderd_issue_ids': orderd_issue_ids
+      'ordered_issue_ids': ordered_issue_ids
       }
   });
 }
@@ -111,11 +111,11 @@ function loadSortableSetting() {
     update: function(event, ui) {
       var current_receiver = ui.item.parents('.issue-card-receiver')[0];
       if (this !== current_receiver) return; // do nothing if the update event is not fired in the current receiver
-      var orderd_issue_ids = [];
+      var ordered_issue_ids = [];
       $(this).find('.issue-card:not(.add-issue-card)').each(function(_, elem) {
-        orderd_issue_ids.push($(elem).attr('data-issue-id'));
+        ordered_issue_ids.push($(elem).attr('data-issue-id'));
       });
-      moveIssueCard(ui.item, $(this), orderd_issue_ids);
+      moveIssueCard(ui.item, $(this), ordered_issue_ids);
     }
   }).disableSelection();
 }

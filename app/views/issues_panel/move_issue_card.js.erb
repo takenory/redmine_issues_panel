@@ -1,5 +1,5 @@
 <% @issues_panel.view = self %>
-<% if @issue_card.saved_changes? || @issue_card.reorderd? %>
+<% if @issue_card.saved_changes? || @issue_card.reordered? %>
   /// remove issue card
   $('#issue-card-<%= @issue_card.id %>').remove();
   // refresh status total
