@@ -22,6 +22,7 @@ module RedmineIssuesPanel
           params[:enable_manual_ordering] ||
             (params[:query] && params[:query][:enable_manual_ordering]) ||
             options[:enable_manual_ordering]
+        self
       end
 
       def base_scope
