@@ -1,6 +1,7 @@
 class IssuesPanelController < ApplicationController
   before_action :find_optional_project, :except => [:show_issue_description]
   before_action :find_issue_card, :only => [:show_issue_description, :move_issue_card]
+
   rescue_from Query::StatementInvalid, :with => :query_statement_invalid
 
   helper :projects
